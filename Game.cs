@@ -10,6 +10,7 @@ namespace ConsoleApp1
     {
         private void DetermineTurn(string player)
         {
+            Console.Clear();
             Console.WriteLine(player + "'s turn.");
             Console.ReadLine();
         }
@@ -72,9 +73,13 @@ namespace ConsoleApp1
                     GameWithCpu("normal", "normal", player);
                     break;
                 case "2":
+                    Console.WriteLine("In hard mode, the computer has a 50% chance of hitting.");
+                    Console.ReadLine();
                     GameWithCpu("normal", "hard", player);
                     break;
                 case "3":
+                    Console.WriteLine("In unbeatable mode, the computer has a 75% chance of hitting.");
+                    Console.ReadLine();
                     GameWithCpu("normal", "unbeatable", player);
                     break;
                 default:

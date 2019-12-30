@@ -161,6 +161,7 @@ namespace ConsoleApp1
             if (player.shipsBoard[initiateShips.HitOrMiss[1], initiateShips.HitOrMiss[0]] != icon)
             {
                 Console.WriteLine("Computer hit a ship!");
+                ShipHit(player);
                 Console.ReadLine();
                 hitsBoard[initiateShips.HitOrMiss[1], initiateShips.HitOrMiss[0]] = "[X]";
                 player.shipsBoard[initiateShips.HitOrMiss[1], initiateShips.HitOrMiss[0]] = "[X]";
@@ -179,6 +180,65 @@ namespace ConsoleApp1
         protected override bool CheckIfGuessAlready(Player player)
         {
             return hitsBoard[initiateShips.HitOrMiss[1], initiateShips.HitOrMiss[0]] == "[X]" || hitsBoard[initiateShips.HitOrMiss[1], initiateShips.HitOrMiss[0]] == "[O]";
+        }
+        protected override void ShipHit(Player player)
+        {
+            string value = player.shipsBoard[initiateShips.HitOrMiss[1], initiateShips.HitOrMiss[0]];
+            switch (value)
+            {
+                case "[C]":
+                    if (initiateShips.CarrierHitCount == 4)
+                    {
+                        Console.WriteLine("The computer sunk your carrier.");
+                    }
+                    else
+                    {
+                        initiateShips.CarrierHitCount++;
+                    }
+                    break;
+                case "[B]":
+                    if (initiateShips.BattleshipHitCount == 3)
+                    {
+                        Console.WriteLine("The computer sunk your battleship.");
+                    }
+                    else
+                    {
+                        initiateShips.BattleshipHitCount++;
+                    }
+                    break;
+                case "[S]":
+                    if (initiateShips.SubHitCount == 2)
+                    {
+                        Console.WriteLine("The computer sunk your submarine.");
+                    }
+                    else
+                    {
+                        initiateShips.SubHitCount++;
+                    }
+                    break;
+                case "[c]":
+                    if (initiateShips.CruiserHitCount == 2)
+                    {
+                        Console.WriteLine("The computer sunk your cruiser.");
+                    }
+                    else
+                    {
+                        initiateShips.CruiserHitCount++;
+                    }
+                    break;
+                case "[D]":
+                    if (initiateShips.DestroyerHitCoount == 1)
+                    {
+                        Console.WriteLine("The computer sunk your destroyer.");
+                    }
+                    else
+                    {
+                        initiateShips.DestroyerHitCoount++;
+                    }
+                    break;
+                default:
+                    break;
+            }
         }
         public override void DetermineWin(Player player)
         {

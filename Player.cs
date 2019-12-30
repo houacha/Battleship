@@ -83,5 +83,6 @@ namespace ConsoleApp1
         protected abstract void PlaceShips();
         protected abstract bool CheckIfGuessAlready(Player player);
         protected abstract bool DetermineHitOrMiss(string icon, Player player);
+        protected abstract void ShipHit(Player player);
     }
 }

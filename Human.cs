@@ -150,6 +150,65 @@ namespace ConsoleApp1
             }
             return result;
         }
+        protected override void ShipHit(Player player)
+        {
+            string value = player.shipsBoard[initiateShips.HitOrMiss[1], initiateShips.HitOrMiss[0]];
+            switch (value)
+            {
+                case "[C]":
+                    if (initiateShips.CarrierHitCount == 4)
+                    {
+                        Console.WriteLine("You sunk their carrier.");
+                    }
+                    else
+                    {
+                        initiateShips.CarrierHitCount++;
+                    }
+                    break;
+                case "[B]":
+                    if (initiateShips.BattleshipHitCount == 3)
+                    {
+                        Console.WriteLine("You sunk their battleship.");
+                    }
+                    else
+                    {
+                        initiateShips.BattleshipHitCount++;
+                    }
+                    break;
+                case "[S]":
+                    if (initiateShips.SubHitCount == 2)
+                    {
+                        Console.WriteLine("You sunk their submarine.");
+                    }
+                    else
+                    {
+                        initiateShips.SubHitCount++;
+                    }
+                    break;
+                case "[c]":
+                    if (initiateShips.CruiserHitCount == 2)
+                    {
+                        Console.WriteLine("You sunk their cruiser.");
+                    }
+                    else
+                    {
+                        initiateShips.CruiserHitCount++;
+                    }
+                    break;
+                case "[D]":
+                    if (initiateShips.DestroyerHitCoount == 1)
+                    {
+                        Console.WriteLine("You sunk their destroyer.");
+                    }
+                    else
+                    {
+                        initiateShips.DestroyerHitCoount++;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
         protected override void ChooseShip()
         {
             do
@@ -280,6 +339,7 @@ namespace ConsoleApp1
             if (player.shipsBoard[initiateShips.HitOrMiss[1], initiateShips.HitOrMiss[0]] != icon)
             {
                 Console.WriteLine("You hit a ship!");
+                ShipHit(player);
                 Console.ReadLine();
                 hitsBoard[initiateShips.HitOrMiss[1], initiateShips.HitOrMiss[0]] = "[X]";
                 player.shipsBoard[initiateShips.HitOrMiss[1], initiateShips.HitOrMiss[0]] = "[X]";
