@@ -13,15 +13,5 @@ namespace ConsoleApp1
         {
             gameBoard = new string[10, 10];
         }
-        public void GameboardIcon()
-        {
-            for (int i = 0; i < gameBoard.GetLength(0); i++)
-            {
-                for (int j = 0; j < gameBoard.GetLength(1); j++)
-                {
-                    gameBoard[i, j] = "[ ]";
-                }
-            }
-        }
     }
 }
