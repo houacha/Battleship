@@ -21,16 +21,16 @@ namespace ConsoleApp1
             {
                 do
                 {
-                    hitCoord[0] = cpuChoice.Next(9);
-                    hitCoord[1] = cpuChoice.Next(9);
+                    hitCoord[0] = cpuChoice.Next(10);
+                    hitCoord[1] = cpuChoice.Next(10);
                     initiateShips.HitOrMiss = hitCoord;
                 } while (player.shipsBoard[initiateShips.HitOrMiss[1], initiateShips.HitOrMiss[0]] == "[ ]" || CheckIfGuessAlready(player) == true);
                 DetermineHumanOrCpu(person, player);
             }
             else
             {
-                hitCoord[0] = cpuChoice.Next(9);
-                hitCoord[1] = cpuChoice.Next(9);
+                hitCoord[0] = cpuChoice.Next(10);
+                hitCoord[1] = cpuChoice.Next(10);
                 if (CheckIfGuessAlready(player) == true)
                 {
                     GameModePlay(guess, difficultNum, difficulty, person, player);
